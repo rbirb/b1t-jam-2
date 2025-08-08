@@ -16,10 +16,14 @@ boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/kanban_tasks/plugin.cfg")
+
 [file_customization]
 
 folder_colors={
-"res://global/": "blue",
+"res://global/": "yellow",
 "res://shaders/": "purple",
 "res://sounds/": "pink"
 }
