@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://n01wx5aci5gy"]
+
+[ext_resource type="FontFile" uid="uid://ddv38wm3jx110" path="res://fonts/NicoPups-Regular.ttf" id="1_nk4jr"]
+[ext_resource type="Script" uid="uid://ilunx6el5ue8" path="res://game/text.gd" id="2_h3iee"]
+
+[node name="Text" type="RichTextLabel"]
+anchors_preset = -1
+offset_right = 458.0
+offset_bottom = 100.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/normal_font = ExtResource("1_nk4jr")
+theme_override_font_sizes/normal_font_size = 56
+text = "ninuiuhhiihiuhiuhihiuhihihihiuhiuhiuh"
+fit_content = true
+scroll_active = false
+script = ExtResource("2_h3iee")
