@@ -1,7 +1,15 @@
 extends Node
 signal finished_text
+signal window_resized
+signal finished_scene
+signal change_scene
+signal svc_filled
 
 var bg: ColorRect
+var svc: SubViewportContainer:
+	set(v):
+		svc = v
+		svc_filled.emit()
 const KEYBOARD_KEYS: Dictionary[int, String] = {
 	KEY_Q: "q",
 	KEY_W: "w",
@@ -53,3 +61,18 @@ const CONTROLLER_INPUTS: Dictionary[int, int] = {
 	JOY_BUTTON_PADDLE4: 9
 }
 var CONTROLLER_CONNECTED := Input.get_connected_joypads().size() != 0
+
+func _ready() -> void:
+	get_window().size_changed.connect(func(): window_resized.emit())
+
+func set_pallette(wc: Color, bc: Color):
+	if svc != null:
+		svc.material.set_shader_parameter("white", wc)
+		svc.material.set_shader_parameter("black", bc)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("fullscreen"):
+		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)

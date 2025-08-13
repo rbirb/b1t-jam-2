@@ -1,11 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://lr56v7shidjd"]
+[gd_scene load_steps=3 format=3 uid="uid://lr56v7shidjd"]
 
 [ext_resource type="Script" uid="uid://cvxc5pxw8k03f" path="res://game/game.gd" id="1_3ovkv"]
-[ext_resource type="Texture2D" uid="uid://85y1krsdpkr2" path="res://game/scenes/scene1/Sprite-0002.png" id="1_k6on0"]
 [ext_resource type="Script" uid="uid://wk1v24twkwha" path="res://game/camera.gd" id="1_qc1vr"]
-[ext_resource type="Texture2D" uid="uid://bekvcjxi0mu1o" path="res://game/scenes/scene1/Sprite-00032.png" id="2_qc1vr"]
-[ext_resource type="Texture2D" uid="uid://cwdq0pw417nnp" path="res://game/scenes/scene1/Sprite-000332.png" id="3_34yjo"]
-[ext_resource type="PackedScene" uid="uid://n01wx5aci5gy" path="res://game/text.tscn" id="5_34yjo"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3ovkv")
@@ -23,42 +19,3 @@ color = Color(0, 0, 0, 1)
 
 [node name="Camera" type="Camera2D" parent="."]
 script = ExtResource("1_qc1vr")
-
-[node name="Scene1" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer2" type="ParallaxLayer" parent="Scene1"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Scene1/ParallaxLayer2"]
-scale = Vector2(4.1, 4.1)
-texture = ExtResource("1_k6on0")
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Scene1"]
-motion_scale = Vector2(0.98, 0.98)
-
-[node name="Sprite2D2" type="Sprite2D" parent="Scene1/ParallaxLayer"]
-scale = Vector2(4.1, 4.1)
-texture = ExtResource("2_qc1vr")
-
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="Scene1"]
-motion_scale = Vector2(0.95, 0.95)
-
-[node name="Sprite2D3" type="Sprite2D" parent="Scene1/ParallaxLayer3"]
-position = Vector2(92, 9)
-scale = Vector2(4.1, 4.1)
-texture = ExtResource("3_34yjo")
-
-[node name="TextLayer" type="ParallaxLayer" parent="Scene1"]
-
-[node name="Text" parent="Scene1/TextLayer" instance=ExtResource("5_34yjo")]
-offset_left = -398.0
-offset_top = 197.0
-offset_right = -14.0
-offset_bottom = 353.0
-text = "Farmer from the outer lands"
-
-[node name="Text2" parent="Scene1/TextLayer" instance=ExtResource("5_34yjo")]
-offset_left = -351.0
-offset_top = -158.0
-offset_right = 33.0
-offset_bottom = 10.0
-text = "brings two sprouts which like strands"

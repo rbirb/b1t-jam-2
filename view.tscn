@@ -1,21 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7jkrua7hb7vq"]
+[gd_scene load_steps=5 format=3 uid="uid://c7jkrua7hb7vq"]
 
-[ext_resource type="Shader" uid="uid://bc7ie3j8xf7j7" path="res://shaders/1bit.gdshader" id="1_qrcl0"]
+[ext_resource type="Shader" uid="uid://bc7ie3j8xf7j7" path="res://shaders/1bit.gdshader" id="1_cgc2k"]
+[ext_resource type="Script" uid="uid://c8h8eosdr8ene" path="res://view.gd" id="1_koon8"]
 [ext_resource type="PackedScene" uid="uid://lr56v7shidjd" path="res://game/game.tscn" id="1_wf4pw"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_88e5q"]
-shader = ExtResource("1_qrcl0")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_koon8"]
+shader = ExtResource("1_cgc2k")
 shader_parameter/dithering = false
 shader_parameter/dithering_size = 10
 shader_parameter/resolution_scale = 1
-shader_parameter/threshold = 90.0
-shader_parameter/white = Color(0.9520238, 0.95389646, 0.9177833, 1)
-shader_parameter/black = Color(0.037555277, 0.020597596, 0.0400139, 1)
+shader_parameter/threshold = 60.0
+shader_parameter/white = Color(1, 1, 1, 1)
+shader_parameter/black = Color(0, 0, 0, 1)
 
 [node name="View" type="CanvasLayer"]
+script = ExtResource("1_koon8")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-material = SubResource("ShaderMaterial_88e5q")
+material = SubResource("ShaderMaterial_koon8")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -30,8 +32,7 @@ snap_2d_vertices_to_pixel = true
 canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true
 audio_listener_enable_3d = true
-oversampling = false
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Scene1" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_wf4pw")]
+[node name="Game" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_wf4pw")]
