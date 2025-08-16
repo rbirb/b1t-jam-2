@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://dudb6x4x6dcdw"]
+
+[ext_resource type="Texture2D" uid="uid://bn40heqqsip5l" path="res://game/scenes/game/key/key.png" id="1_j3w0x"]
+[ext_resource type="Script" uid="uid://my6ty743p5gs" path="res://game/scenes/game/key/key.gd" id="2_70bvv"]
+[ext_resource type="FontFile" uid="uid://n4v4wja3bpp2" path="res://fonts/monogram-extended.ttf" id="3_t17kp"]
+
+[node name="Key" type="Sprite2D"]
+texture = ExtResource("1_j3w0x")
+script = ExtResource("2_70bvv")
+enable_shader = false
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.89
+offset_top = -18.855
+offset_right = -4.5049653
+offset_bottom = -5.8549986
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(1.9, 8.8)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_t17kp")
+text = "h"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true

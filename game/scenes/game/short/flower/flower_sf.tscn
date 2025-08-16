@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfdjyrji2icn3"]
+
+[ext_resource type="Texture2D" uid="uid://c0gkywquwx627" path="res://game/scenes/game/short/flower/flower1.png" id="1_djxim"]
+[ext_resource type="Script" uid="uid://b47h8d76dyf0b" path="res://game/scenes/game/short/flower/flower_sf.gd" id="2_djxim"]
+
+[node name="FlowerSF" type="Sprite2D"]
+texture = ExtResource("1_djxim")
+script = ExtResource("2_djxim")

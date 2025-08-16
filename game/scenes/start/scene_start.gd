@@ -12,9 +12,9 @@ func _ready() -> void:
 	$Fullscreen.visible = false
 
 func end_scene():
-	Global.finished_scene.emit()
+	Global.finished_gscene.emit()
 	await get_tree().create_timer(2).timeout
-	Global.change_scene.emit()
+	Global.change_gscene.emit()
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("start_game") and not space_slide:

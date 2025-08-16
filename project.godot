@@ -10,12 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Flowerphore"
+config/name="Blooming in Two"
 run/main_scene="uid://c7jkrua7hb7vq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/show_image=false
+boot_splash/image="uid://651i2nll10o5"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=600
 
 [autoload]
 

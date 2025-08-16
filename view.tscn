@@ -10,8 +10,8 @@ shader_parameter/dithering = false
 shader_parameter/dithering_size = 10
 shader_parameter/resolution_scale = 1
 shader_parameter/threshold = 60.0
-shader_parameter/white = Color(1, 1, 1, 1)
-shader_parameter/black = Color(0, 0, 0, 1)
+shader_parameter/white = Color(0.85339844, 0.7264292, 0.72311026, 1)
+shader_parameter/black = Color(0.21684203, 0.2746706, 0.1735729, 1)
 
 [node name="View" type="CanvasLayer"]
 script = ExtResource("1_koon8")

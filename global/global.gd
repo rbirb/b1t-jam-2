@@ -1,10 +1,16 @@
 extends Node
 signal finished_text
 signal window_resized
-signal finished_scene
-signal change_scene
+signal finished_gscene
+signal change_gscene
 signal svc_filled
+signal key_pressed
+signal game_tf_move_down
+signal game_sf_move_left
+signal enable_main_camera
+signal disable_main_camera
 
+const size := Vector2(208, 208)
 var bg: ColorRect
 var svc: SubViewportContainer:
 	set(v):
@@ -30,37 +36,37 @@ const KEYBOARD_KEYS: Dictionary[int, String] = {
 	KEY_J: "j",
 	KEY_K: "k",
 	KEY_L: "l",
-	KEY_Z: "z",
-	KEY_X: "x",
-	KEY_C: "c",
-	KEY_V: "v",
-	KEY_B: "b",
-	KEY_N: "n",
-	KEY_M: "m",
-	KEY_0: "0",
-	KEY_1: "1",
-	KEY_2: "2",
-	KEY_3: "3",
-	KEY_4: "4",
-	KEY_5: "5",
-	KEY_6: "6",
-	KEY_7: "7",
-	KEY_8: "8",
-	KEY_9: "9"
+	#KEY_Z: "z",
+	#KEY_X: "x",
+	#KEY_C: "c",
+	#KEY_V: "v",
+	#KEY_B: "b",
+	#KEY_N: "n",
+	#KEY_M: "m",
+	#KEY_0: "0",
+	#KEY_1: "1",
+	#KEY_2: "2",
+	#KEY_3: "3",
+	#KEY_4: "4",
+	#KEY_5: "5",
+	#KEY_6: "6",
+	#KEY_7: "7",
+	#KEY_8: "8",
+	#KEY_9: "9"
 }
-const CONTROLLER_INPUTS: Dictionary[int, int] = {
-	JOY_BUTTON_A: 0,
-	JOY_BUTTON_B: 1,
-	JOY_BUTTON_X: 2,
-	JOY_BUTTON_Y: 3,
-	JOY_BUTTON_LEFT_SHOULDER: 4,
-	JOY_BUTTON_RIGHT_SHOULDER: 5,
-	JOY_BUTTON_PADDLE1: 6,
-	JOY_BUTTON_PADDLE2: 7,
-	JOY_BUTTON_PADDLE3: 8,
-	JOY_BUTTON_PADDLE4: 9
-}
-var CONTROLLER_CONNECTED := Input.get_connected_joypads().size() != 0
+#const CONTROLLER_INPUTS: Dictionary[int, int] = {
+	#JOY_BUTTON_A: 0,
+	#JOY_BUTTON_B: 1,
+	#JOY_BUTTON_X: 2,
+	#JOY_BUTTON_Y: 3,
+	#JOY_BUTTON_LEFT_SHOULDER: 4,
+	#JOY_BUTTON_RIGHT_SHOULDER: 5,
+	#JOY_BUTTON_PADDLE1: 6,
+	#JOY_BUTTON_PADDLE2: 7,
+	#JOY_BUTTON_PADDLE3: 8,
+	#JOY_BUTTON_PADDLE4: 9
+#}
+#var CONTROLLER_CONNECTED := Input.get_connected_joypads().size() != 0
 
 func _ready() -> void:
 	get_window().size_changed.connect(func(): window_resized.emit())

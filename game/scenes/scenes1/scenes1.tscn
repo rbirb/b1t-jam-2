@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2vxwbplb5q3m"]
+
+[ext_resource type="Script" uid="uid://c1t4e1du153vy" path="res://game/scenes/scenes1/scenes1.gd" id="1_boxnq"]
+[ext_resource type="Texture2D" uid="uid://orcgo84sj6tn" path="res://game/scenes/scenes1/1/road.png" id="2_sboj8"]
+[ext_resource type="Script" uid="uid://bn73xre3snbus" path="res://game/sprite.gd" id="3_2rwwf"]
+[ext_resource type="Texture2D" uid="uid://v1e7ekeq43c6" path="res://game/scenes/scenes1/1/farmer.png" id="4_6ffoo"]
+[ext_resource type="Texture2D" uid="uid://c86bb354osmuq" path="res://game/scenes/scenes1/2/hand.png" id="5_enmt0"]
+[ext_resource type="Texture2D" uid="uid://bede3wbva8myv" path="res://game/scenes/scenes1/3/2.png" id="6_2rwwf"]
+[ext_resource type="PackedScene" uid="uid://n01wx5aci5gy" path="res://game/text.tscn" id="6_vkumr"]
+[ext_resource type="Texture2D" uid="uid://c3v8stnk6p1th" path="res://game/scenes/scenes1/3/1.png" id="7_6ffoo"]
+
+[node name="Scenes1" type="Node2D"]
+script = ExtResource("1_boxnq")
+chronology = Array[Dictionary]([{
+"s": NodePath("Scene1"),
+"t": NodePath("TextLayer/Text")
+}, {
+"s": NodePath("Scene2"),
+"t": NodePath("TextLayer/Text2")
+}, {
+"s": NodePath("Scene3"),
+"t": NodePath("TextLayer/Text2")
+}])
+
+[node name="Scene1" type="Node2D" parent="."]
+visible = false
+
+[node name="Road" type="Parallax2D" parent="Scene1"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene1/Road"]
+texture = ExtResource("2_sboj8")
+script = ExtResource("3_2rwwf")
+
+[node name="Farmer" type="Parallax2D" parent="Scene1"]
+scroll_scale = Vector2(0.89, 0.89)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Scene1/Farmer"]
+texture = ExtResource("4_6ffoo")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene2" type="Node2D" parent="."]
+visible = false
+
+[node name="Hand" type="Parallax2D" parent="Scene2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene2/Hand"]
+texture = ExtResource("5_enmt0")
+offset = Vector2(5.545, -6.275)
+script = ExtResource("3_2rwwf")
+
+[node name="Scene3" type="Node2D" parent="."]
+visible = false
+
+[node name="Mountains" type="Parallax2D" parent="Scene3"]
+scroll_scale = Vector2(0.895, 0.895)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene3/Mountains"]
+texture = ExtResource("6_2rwwf")
+offset = Vector2(2.745, 5.485)
+script = ExtResource("3_2rwwf")
+
+[node name="Field" type="Parallax2D" parent="Scene3"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene3/Field"]
+texture = ExtResource("7_6ffoo")
+script = ExtResource("3_2rwwf")
+
+[node name="TextLayer" type="Parallax2D" parent="."]
+scroll_scale = Vector2(1.115, 1.115)
+
+[node name="Text" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -96.0
+offset_top = -59.0
+offset_right = 16.0
+offset_bottom = -27.0
+text = "Farmer from the outer lands"
+
+[node name="Text2" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -117.0
+offset_top = 29.0
+offset_right = 9.0
+offset_bottom = 61.0
+text = "brings two sprouts 
+which like strands"

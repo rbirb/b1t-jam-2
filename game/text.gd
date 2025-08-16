@@ -2,6 +2,7 @@ extends RichTextLabel
 signal continue_pressed
 
 const speed = 0.07
+var active := true
 @onready var window := get_window()
 
 func _ready() -> void:
@@ -9,7 +10,7 @@ func _ready() -> void:
 	material = ShaderMaterial.new()
 	material.shader = preload("res://shaders/dissolve_trans.gdshader")
 	material.set_shader_parameter("progress", 0.0)
-	Global.finished_scene.connect(dissolve)
+	Global.finished_gscene.connect(dissolve)
 	Global.window_resized.connect(update_size)
 	update_size()
 
@@ -21,11 +22,15 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("text_continue") and visible_characters != 0:
 		continue_pressed.emit()
 
+func reset():
+	visible_characters = 0
+
 func dissolve():
 	var shader_tween := create_tween()
 	shader_tween.tween_property(self, "material:shader_parameter/progress", 1.0, 1).from_current()
 
 func activate():
+	if not active: return
 	visible_characters = 0
 	var duration = text.length() * speed
 	var tween := create_tween()
@@ -35,4 +40,5 @@ func activate():
 		tween.stop()
 		visible_characters = text.length()
 		await continue_pressed
+	active = false
 	Global.finished_text.emit()
