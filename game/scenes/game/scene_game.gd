@@ -29,6 +29,7 @@ var change_stage := false
 func _ready() -> void:
 	Global.key_pressed.connect(on_key_pressed)
 	Global.choice_hidden.connect(hide_choice)
+	Audio.play_song("music/growingflower.wav")
 	start_tf_game()
 
 func change_game():
@@ -91,6 +92,7 @@ func hide_choice():
 	start_tf_game()
 
 func on_key_pressed(k):
+	Audio.play_sound("pop"+str(randi_range(1,2))+".wav", -5)
 	if Global.game_is_tf_current:
 		tf_key_pressed(k)
 	else:

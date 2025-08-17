@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	var mouse_pos := get_global_mouse_position()
 	if mouse_pos.x > MARGIN:
 		if not hovered_right:
+			Audio.play_sound("sound1.mp3")
 			hovered_left = false
 			hovered_right = true
 			not_hovered_any = false
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 			unhover_grow()
 	elif mouse_pos.x < -MARGIN:
 		if not hovered_left:
+			Audio.play_sound("sound1.mp3")
 			hovered_left = true
 			hovered_right = false
 			not_hovered_any = false
@@ -28,6 +30,7 @@ func _process(delta: float) -> void:
 			unhover_spread()
 	else:
 		if not not_hovered_any:
+			Audio.play_sound("sound1.mp3")
 			hovered_left = false
 			hovered_right = false
 			not_hovered_any = true
@@ -46,9 +49,11 @@ func _input(event: InputEvent) -> void:
 			choose_spread()
 
 func choose_grow():
+	Audio.play_sound("press_choice.wav")
 	disappear()
 
 func choose_spread():
+	Audio.play_sound("press_choice.wav")
 	deactivate()
 	dissapear_anim()
 	Global.finished_gscene.emit()

@@ -22,16 +22,19 @@ func end_scene():
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("start_game") and not space_slide:
+		Audio.play_sound("cl1.wav")
 		space_slide = true
 		$Lines.visible = false
 		$Start.visible = false
 		$Lines2.visible = true
 		$Space.visible = true
 	elif Input.is_action_just_pressed("text_continue") and space_slide and not fullscreen_slide:
+		Audio.play_sound("cl1.wav")
 		$Lines2.visible = false
 		$Space.visible = false
 		$Lines3.visible = true
 		$Fullscreen.visible = true
 		fullscreen_slide = true
 	elif Input.is_action_just_pressed("fullscreen") and space_slide and fullscreen_slide:
+		Audio.play_sound("fl.wav")
 		end_scene()

@@ -4,6 +4,10 @@ var current_song: AudioStreamPlayer = null
 var current_amb: AudioStreamPlayer = null
 const SOUND_PATH := "res://sounds/"
 
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("disable_music"):
+		AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), !AudioServer.is_bus_mute(AudioServer.get_bus_index("Music")))
+
 func _process(delta: float) -> void:
 	if current_song != null:
 		if !current_song.playing:

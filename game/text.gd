@@ -23,6 +23,7 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("text_continue") and visible_characters != 0 and $Timer.is_stopped():
 		$Timer.start()
 		continue_pressed.emit()
+		Audio.play_sound("click1.wav", -2)
 
 func reset():
 	visible_characters = 0
