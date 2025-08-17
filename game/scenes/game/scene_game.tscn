@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c7o48040powat"]
+[gd_scene load_steps=19 format=3 uid="uid://c7o48040powat"]
 
 [ext_resource type="Script" uid="uid://bntvqthlncqlm" path="res://game/scenes/game/scene_game.gd" id="1_al0d1"]
 [ext_resource type="Texture2D" uid="uid://cpffwj7ovtcaw" path="res://game/scenes/game/tall/Mountains.png" id="1_od21c"]
@@ -11,10 +11,12 @@
 [ext_resource type="Texture2D" uid="uid://dhlhu6eid5i6s" path="res://game/scenes/game/tall/stage1/flower1.png" id="6_jq2ui"]
 [ext_resource type="Script" uid="uid://ikwq82qx7e4b" path="res://game/scenes/game/tall/stem.gd" id="7_m2dec"]
 [ext_resource type="Texture2D" uid="uid://7pbeoq0tddgs" path="res://game/scenes/game/tall/stage1/stem/stem2.png" id="8_l01mf"]
-[ext_resource type="Texture2D" uid="uid://qa7a5o1w6rof" path="res://game/scenes/game/tall/reverseenginnerssuckbig.png" id="9_78hgg"]
-[ext_resource type="Script" uid="uid://dm8d315xlva4n" path="res://game/scenes/game/short/camera_sf.gd" id="13_8nwvc"]
+[ext_resource type="Texture2D" uid="uid://qa7a5o1w6rof" path="res://game/scenes/game/tall/reverseenginnersarecool.png" id="9_78hgg"]
+[ext_resource type="Texture2D" uid="uid://ctmanxiprm4iq" path="res://game/scenes/game/short/gradient.png" id="13_7couk"]
+[ext_resource type="Texture2D" uid="uid://b5heosymnor6i" path="res://game/scenes/game/short/mountains.png" id="13_t4wlr"]
 [ext_resource type="Script" uid="uid://3gnotpjlf7va" path="res://game/scenes/game/short/parallax.gd" id="14_avmg2"]
 [ext_resource type="Texture2D" uid="uid://bxtj6jn1b0a6o" path="res://game/scenes/game/short/land1.png" id="14_ircta"]
+[ext_resource type="Texture2D" uid="uid://caaqyl83eupyi" path="res://game/scenes/game/short/keyareasf.png" id="15_avmg2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78hgg"]
 load_path = "res://.godot/imported/reverseenginnerssuckbig.png-e5198264691f6269a06021f776546fbd.ctex"
@@ -115,9 +117,17 @@ position = Vector2(95, -48)
 
 [node name="ShortFlower" type="Node2D" parent="."]
 
-[node name="CameraSF" type="Camera2D" parent="ShortFlower"]
-enabled = false
-script = ExtResource("13_8nwvc")
+[node name="Gradient" type="Sprite2D" parent="ShortFlower"]
+texture = ExtResource("13_7couk")
+offset = Vector2(0, -82)
+script = ExtResource("2_od21c")
+enable_shader = false
+
+[node name="Mountains" type="Sprite2D" parent="ShortFlower"]
+texture = ExtResource("13_t4wlr")
+offset = Vector2(0, -31.285)
+script = ExtResource("2_od21c")
+enable_shader = false
 
 [node name="Land1" type="Parallax2D" parent="ShortFlower"]
 repeat_size = Vector2(208, 0)
@@ -126,5 +136,23 @@ script = ExtResource("14_avmg2")
 
 [node name="Sprite2D" type="Sprite2D" parent="ShortFlower/Land1"]
 texture = ExtResource("14_ircta")
+offset = Vector2(0, -6)
 script = ExtResource("2_od21c")
 enable_shader = false
+
+[node name="KeyArea" type="Sprite2D" parent="ShortFlower"]
+texture = ExtResource("15_avmg2")
+offset = Vector2(-52, 0)
+script = ExtResource("2_od21c")
+
+[node name="X1" type="Node2D" parent="ShortFlower/KeyArea"]
+position = Vector2(-90, -27.5)
+
+[node name="Y1" type="Node2D" parent="ShortFlower/KeyArea"]
+position = Vector2(-90, -5)
+
+[node name="Y2" type="Node2D" parent="ShortFlower/KeyArea"]
+position = Vector2(-90, 41)
+
+[node name="X2" type="Node2D" parent="ShortFlower/KeyArea"]
+position = Vector2(-46.72, -27.5)

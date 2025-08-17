@@ -9,7 +9,6 @@ const SCENE_CHRONOLOGY: Array[Dictionary] = [
 var scene_index := 0
 
 func _ready() -> void:
-	Global.bg = $BG/BG
 	if Global.svc == null:
 		await Global.svc_filled
 	#Global.change_gscene.connect(on_change_gscene)

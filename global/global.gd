@@ -4,14 +4,14 @@ signal window_resized
 signal finished_gscene
 signal change_gscene
 signal svc_filled
-signal key_pressed
+signal key_pressed(k)
 signal game_tf_move_down
-signal game_sf_move_left
-signal enable_main_camera
-signal disable_main_camera
+signal game_sf_move_right
 
+var game_sf_move_distance := 50.0
+var game_sf_move_duration := 0.2
+var game_is_tf_current := true
 const size := Vector2(208, 208)
-var bg: ColorRect
 var svc: SubViewportContainer:
 	set(v):
 		svc = v

@@ -23,7 +23,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("1_qc1vr")
 
 [node name="SceneGame" parent="." instance=ExtResource("3_h7iqs")]
-process_mode = 4
-visible = false
 
 [node name="Scenes1" parent="." instance=ExtResource("4_4fuuu")]
+process_mode = 4
+visible = false

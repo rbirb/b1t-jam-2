@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c2vxwbplb5q3m"]
+[gd_scene load_steps=17 format=3 uid="uid://c2vxwbplb5q3m"]
 
 [ext_resource type="Script" uid="uid://c1t4e1du153vy" path="res://game/scenes/scenes1/scenes1.gd" id="1_boxnq"]
 [ext_resource type="Texture2D" uid="uid://orcgo84sj6tn" path="res://game/scenes/scenes1/1/road.png" id="2_sboj8"]
@@ -8,18 +8,52 @@
 [ext_resource type="Texture2D" uid="uid://bede3wbva8myv" path="res://game/scenes/scenes1/3/2.png" id="6_2rwwf"]
 [ext_resource type="PackedScene" uid="uid://n01wx5aci5gy" path="res://game/text.tscn" id="6_vkumr"]
 [ext_resource type="Texture2D" uid="uid://c3v8stnk6p1th" path="res://game/scenes/scenes1/3/1.png" id="7_6ffoo"]
+[ext_resource type="Texture2D" uid="uid://dawua4h26usbi" path="res://game/scenes/scenes1/4/1.png" id="8_6ffoo"]
+[ext_resource type="Texture2D" uid="uid://dpru8v8vd77ex" path="res://game/scenes/scenes1/5/1.png" id="9_spps7"]
+[ext_resource type="Texture2D" uid="uid://2rgoasi7lo3i" path="res://game/scenes/scenes1/5/2.png" id="10_lriqa"]
+[ext_resource type="Texture2D" uid="uid://jgg87vo4lvu8" path="res://game/scenes/scenes1/5/3.png" id="11_o264e"]
+[ext_resource type="Texture2D" uid="uid://bfxbtah1aukbb" path="res://game/scenes/scenes1/6/1.png" id="12_o264e"]
+[ext_resource type="Texture2D" uid="uid://c4qwhffqeotx" path="res://game/scenes/scenes1/6/2.png" id="13_rmf8t"]
+[ext_resource type="Texture2D" uid="uid://dbomfhqxia3lh" path="res://game/scenes/scenes1/7/1.png" id="14_7rfpw"]
+[ext_resource type="Texture2D" uid="uid://b7xroc5e4ybqq" path="res://game/scenes/scenes1/7/2.png" id="15_lamg0"]
 
 [node name="Scenes1" type="Node2D"]
 script = ExtResource("1_boxnq")
 chronology = Array[Dictionary]([{
+"bc": Color(0.09019608, 0.0627451, 0.16078432, 1),
 "s": NodePath("Scene1"),
-"t": NodePath("TextLayer/Text")
+"t": NodePath("TextLayer/Text"),
+"wc": Color(0.9411765, 0.8666667, 0.72156864, 1)
 }, {
+"bc": Color(0.09019608, 0.0627451, 0.16078432, 1),
 "s": NodePath("Scene2"),
-"t": NodePath("TextLayer/Text2")
+"t": NodePath("TextLayer/Text2"),
+"wc": Color(0.9411765, 0.8666667, 0.72156864, 1)
 }, {
+"bc": Color(0.20565137, 0.28401703, 0.47454923, 1),
 "s": NodePath("Scene3"),
-"t": NodePath("TextLayer/Text2")
+"t": NodePath("TextLayer/Text2"),
+"wc": Color(0.87707067, 0.60145855, 0.39924037, 1)
+}, {
+"bc": Color(0.21568628, 0.27450982, 0.17254902, 1),
+"s": NodePath("Scene4"),
+"t": NodePath("TextLayer/Text"),
+"wc": Color(0.85490197, 0.7254902, 0.72156864, 1)
+}, {
+"bc": Color(0.9765392, 0.9595998, 0.9363083, 1),
+"s": NodePath("Scene5"),
+"t": NodePath("TextLayer/Text"),
+"wc": Color(0.12650114, 0.08560751, 0.034318466, 1)
+}, {
+"bc": Color(0.9764706, 0.9607843, 0.9372549, 1),
+"s": NodePath("Scene6"),
+"t": NodePath("TextLayer/Text"),
+"wc": Color(0.1254902, 0.08627451, 0.03529412, 1)
+}, {
+"bc": Color(0.9764706, 0.9607843, 0.9372549, 1),
+"s": NodePath("Scene7"),
+"t": NodePath("TextLayer/Text"),
+"wc": Color(0.1254902, 0.08627451, 0.03529412, 1)
 }])
 
 [node name="Scene1" type="Node2D" parent="."]
@@ -56,7 +90,7 @@ scroll_scale = Vector2(0.895, 0.895)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene3/Mountains"]
 texture = ExtResource("6_2rwwf")
-offset = Vector2(2.745, 5.485)
+offset = Vector2(20.405, 15.26)
 script = ExtResource("3_2rwwf")
 
 [node name="Field" type="Parallax2D" parent="Scene3"]
@@ -65,7 +99,75 @@ script = ExtResource("3_2rwwf")
 texture = ExtResource("7_6ffoo")
 script = ExtResource("3_2rwwf")
 
+[node name="Scene4" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene4"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene4/Parallax2D"]
+texture = ExtResource("8_6ffoo")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene5" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene5"]
+scroll_scale = Vector2(0.825, 0.825)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene5/Parallax2D"]
+texture = ExtResource("9_spps7")
+offset = Vector2(8.205, 6.03)
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene5"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene5/Parallax2D2"]
+texture = ExtResource("10_lriqa")
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D3" type="Parallax2D" parent="Scene5"]
+scroll_scale = Vector2(0.95, 0.95)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene5/Parallax2D3"]
+texture = ExtResource("11_o264e")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene6" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene6"]
+scroll_scale = Vector2(0.875, 0.875)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene6/Parallax2D"]
+texture = ExtResource("12_o264e")
+offset = Vector2(4.98, 3.81)
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene6"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene6/Parallax2D2"]
+texture = ExtResource("13_rmf8t")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene7" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene7"]
+scroll_scale = Vector2(0.855, 0.855)
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene7/Parallax2D"]
+texture = ExtResource("14_7rfpw")
+offset = Vector2(4.38, 4.985)
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene7"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene7/Parallax2D2"]
+texture = ExtResource("15_lamg0")
+script = ExtResource("3_2rwwf")
+
 [node name="TextLayer" type="Parallax2D" parent="."]
+visible = false
 scroll_scale = Vector2(1.115, 1.115)
 
 [node name="Text" parent="TextLayer" instance=ExtResource("6_vkumr")]
