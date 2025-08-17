@@ -12,7 +12,8 @@ func _ready() -> void:
 		get_node(s["t"]).activate()
 		await Global.finished_text
 		get_node(s["t"]).reset()
-		get_node(s["s"]).visible = false
+		if chronology.find(s) != 2:
+			get_node(s["s"]).visible = false
 	Global.finished_gscene.emit()
 	await get_tree().create_timer(1).timeout
 	Global.change_gscene.emit()
