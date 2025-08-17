@@ -88,7 +88,8 @@ func hide_choice():
 	Global.game_choice = false
 	grow_choice_attempt += 1
 	$TallFlower.visible = true
-	Global.sprites_appear.emit()
+	Global.game_changed.emit()
+	start_tf_game()
 
 func on_key_pressed(k):
 	if Global.game_is_tf_current:

@@ -12,5 +12,5 @@ func _ready() -> void:
 	update_size()
 
 func update_size():
-	scale = Vector2(clamp((window.size.x / Global.size.x) - 5, 1, 8), clamp((window.size.x / Global.size.x) - 5, 1, 8))
+	scale = Vector2(clamp((window.size.x / size.x) - 5, 1, 8), clamp((window.size.x / size.x) - 5, 1, 8))
 	offset = position

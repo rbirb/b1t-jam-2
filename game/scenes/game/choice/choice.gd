@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var invert_orig_offset : float = $InvertColors.offset.x
 const MARGIN := 10
 var active := false
 var not_hovered_any := true
@@ -49,6 +50,7 @@ func choose_grow():
 
 func choose_spread():
 	deactivate()
+	dissapear_anim()
 	Global.finished_gscene.emit()
 	await get_tree().create_timer(1).timeout
 	Global.change_gscene.emit()
@@ -66,11 +68,16 @@ func unhover_spread():
 	$ChoiceText/Spread.add_theme_constant_override("shadow_outline_size", 0)
 
 func appear():
+	$ChoiceText/Grow.offset = Vector2(-73, -12)
+	$ChoiceText/Spread.offset = Vector2(32, -12)
+	$InvertColors.offset.x = invert_orig_offset
 	visible = true
 	Global.sprites_appear.emit()
 	await get_tree().create_timer(1).timeout
 	$TextLayer/Text.activate()
 	await Global.finished_text
+	$TextLayer/Text.reset()
+	$TextLayer/Text.active = true
 	active = true
 	$InvertColors.active = true
 	$ChoiceText.visible = true
@@ -85,8 +92,18 @@ func deactivate():
 	unhover_spread()
 	$InvertColors.active = false
 
+func dissapear_anim():
+	var tw_grow_move := create_tween()
+	tw_grow_move.tween_property($ChoiceText/Grow, "offset:x", -get_viewport().size.x/1.5, 0.6).set_trans(Tween.TRANS_SINE)
+	var tw_spread_move := create_tween()
+	tw_spread_move.tween_property($ChoiceText/Spread, "offset:x", get_viewport().size.x/1.5, 0.6).set_trans(Tween.TRANS_SINE)
+	var tw_invert_move := create_tween()
+	tw_invert_move.tween_property($InvertColors, "offset:x", 212, 0.7).set_trans(Tween.TRANS_SINE)
+	await tw_invert_move.finished
+
 func disappear():
 	deactivate()
+	dissapear_anim()
 	Global.sprites_disappear.emit()
 	await get_tree().create_timer(1).timeout
 	visible = false

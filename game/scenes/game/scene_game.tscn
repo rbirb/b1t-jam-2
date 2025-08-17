@@ -261,6 +261,7 @@ position = Vector2(-90, 50)
 position = Vector2(-46.72, -27.5)
 
 [node name="Choice" type="Node2D" parent="."]
+visible = false
 script = ExtResource("19_geax6")
 
 [node name="Background" type="Parallax2D" parent="Choice"]
@@ -320,8 +321,9 @@ vertical_alignment = 1
 script = ExtResource("23_ox3hh")
 
 [node name="InvertColors" type="Sprite2D" parent="Choice"]
+visible = false
 material = SubResource("ShaderMaterial_geax6")
 texture = ExtResource("21_tfsta")
-offset = Vector2(55, 0)
+offset = Vector2(60, 0)
 script = ExtResource("21_7wihh")
 enable_shader = false
