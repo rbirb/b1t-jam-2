@@ -5,14 +5,16 @@ var current_scene_i
 const SCENE_CHRONOLOGY: Array[Dictionary] = [
 	{"s":preload("res://game/scenes/start/scene_start.tscn"), "wc":Color("c79187"), "bc":Color("050d1b"), "n":"start"},
 	{"s":preload("res://game/scenes/scenes1/scenes1.tscn"), "wc":Color("f0ddb8"), "bc":Color("171029"), "n":"s1"},
+	{"s":preload("res://game/scenes/game/scene_game.tscn"), "wc":Color("dab9b8"), "bc":Color("37462c"), "n":"game"},
+	{"s":preload("res://game/scenes/scenes2/scenes_2.tscn"), "wc":Color("f0ddb8"), "bc":Color("171029"), "n":"s2"},
 ]
 var scene_index := 0
 
 func _ready() -> void:
 	if Global.svc == null:
 		await Global.svc_filled
-	#Global.change_gscene.connect(on_change_gscene)
-	#next_scene()
+	Global.change_gscene.connect(on_change_gscene)
+	next_scene()
 
 func on_change_gscene():
 	next_scene()

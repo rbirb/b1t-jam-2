@@ -12,6 +12,7 @@ config_version=5
 
 config/name="Blooming in Two"
 config/description="A Tale About Two Flowers."
+config/version="1"
 run/main_scene="uid://c7jkrua7hb7vq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(0, 0, 0, 1)
@@ -36,6 +37,7 @@ folder_colors={
 "res://game/scenes/game/short/": "teal",
 "res://game/scenes/game/tall/": "red",
 "res://game/scenes/scenes1/": "blue",
+"res://game/scenes/scenes2/": "gray",
 "res://global/": "yellow",
 "res://shaders/": "purple",
 "res://sounds/": "pink"

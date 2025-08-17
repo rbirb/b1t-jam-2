@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxxf7v7veogrc"]
+
+[ext_resource type="Script" uid="uid://b3pvu4irjnyox" path="res://game/scenes/scenes2/scenes_2.gd" id="1_ngoin"]
+[ext_resource type="Texture2D" uid="uid://cn6biibusc51" path="res://game/scenes/scenes2/1/1.png" id="2_i81q8"]
+[ext_resource type="Script" uid="uid://bn73xre3snbus" path="res://game/sprite.gd" id="2_xyywx"]
+[ext_resource type="Texture2D" uid="uid://7bkhdvtltqku" path="res://game/scenes/scenes2/1/2.png" id="4_li0pg"]
+[ext_resource type="Texture2D" uid="uid://gcqryt2bui62" path="res://game/scenes/scenes2/2/1.png" id="5_e5pj6"]
+[ext_resource type="Texture2D" uid="uid://c6xtikxldl1tq" path="res://game/scenes/scenes2/3/1.png" id="6_slsqb"]
+[ext_resource type="Texture2D" uid="uid://c8koh1wc6hw8a" path="res://game/scenes/scenes2/3/2.png" id="7_w57qa"]
+[ext_resource type="PackedScene" uid="uid://n01wx5aci5gy" path="res://game/text.tscn" id="8_slsqb"]
+
+[node name="Scenes2" type="Node2D"]
+script = ExtResource("1_ngoin")
+
+[node name="Scene1" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene1"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene1/Parallax2D"]
+texture = ExtResource("2_i81q8")
+script = ExtResource("2_xyywx")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene1"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene1/Parallax2D2"]
+texture = ExtResource("4_li0pg")
+script = ExtResource("2_xyywx")
+
+[node name="Scene2" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene2"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene2/Parallax2D"]
+texture = ExtResource("5_e5pj6")
+script = ExtResource("2_xyywx")
+
+[node name="Scene3" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene3"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene3/Parallax2D"]
+texture = ExtResource("6_slsqb")
+script = ExtResource("2_xyywx")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene3"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene3/Parallax2D2"]
+texture = ExtResource("7_w57qa")
+script = ExtResource("2_xyywx")
+
+[node name="TextLayer" type="Parallax2D" parent="."]
+
+[node name="Text" parent="TextLayer" instance=ExtResource("8_slsqb")]
+
+[node name="Text2" parent="TextLayer" instance=ExtResource("8_slsqb")]
+
+[node name="Text3" parent="TextLayer" instance=ExtResource("8_slsqb")]

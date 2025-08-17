@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c2vxwbplb5q3m"]
+[gd_scene load_steps=24 format=3 uid="uid://c2vxwbplb5q3m"]
 
 [ext_resource type="Script" uid="uid://c1t4e1du153vy" path="res://game/scenes/scenes1/scenes1.gd" id="1_boxnq"]
 [ext_resource type="Texture2D" uid="uid://orcgo84sj6tn" path="res://game/scenes/scenes1/1/road.png" id="2_sboj8"]
@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://c4qwhffqeotx" path="res://game/scenes/scenes1/6/2.png" id="13_rmf8t"]
 [ext_resource type="Texture2D" uid="uid://dbomfhqxia3lh" path="res://game/scenes/scenes1/7/1.png" id="14_7rfpw"]
 [ext_resource type="Texture2D" uid="uid://b7xroc5e4ybqq" path="res://game/scenes/scenes1/7/2.png" id="15_lamg0"]
+[ext_resource type="Texture2D" uid="uid://bywl6k252dp7p" path="res://game/scenes/scenes1/8/2.png" id="16_iw7ht"]
+[ext_resource type="Texture2D" uid="uid://d3jsmqxl5xqp5" path="res://game/scenes/scenes1/8/1.png" id="17_3fins"]
+[ext_resource type="Texture2D" uid="uid://dlk7pplfohjpn" path="res://game/scenes/scenes1/9/2.png" id="18_dy8m0"]
+[ext_resource type="Texture2D" uid="uid://cq6p76356gqne" path="res://game/scenes/scenes1/9/1.png" id="19_foh0k"]
+[ext_resource type="Texture2D" uid="uid://h043pa3kt0n5" path="res://game/scenes/scenes1/10/1.png" id="20_foh0k"]
+[ext_resource type="Texture2D" uid="uid://nidx5i2mnbcd" path="res://game/scenes/scenes1/11/2.png" id="21_vsaha"]
+[ext_resource type="Texture2D" uid="uid://bvagx7hes7evf" path="res://game/scenes/scenes1/11/1.png" id="22_mp45k"]
 
 [node name="Scenes1" type="Node2D"]
 script = ExtResource("1_boxnq")
@@ -27,19 +34,31 @@ chronology = Array[Dictionary]([{
 "t": NodePath("TextLayer/Text2")
 }, {
 "s": NodePath("Scene3"),
-"t": NodePath("TextLayer/Text2")
+"t": NodePath("TextLayer/Text3")
 }, {
 "s": NodePath("Scene4"),
-"t": NodePath("TextLayer/Text")
+"t": NodePath("TextLayer/Text4")
 }, {
 "s": NodePath("Scene5"),
-"t": NodePath("TextLayer/Text")
+"t": NodePath("TextLayer/Text5")
 }, {
 "s": NodePath("Scene6"),
-"t": NodePath("TextLayer/Text")
+"t": NodePath("TextLayer/Text6")
 }, {
 "s": NodePath("Scene7"),
-"t": NodePath("TextLayer/Text")
+"t": NodePath("TextLayer/Text7")
+}, {
+"s": NodePath("Scene8"),
+"t": NodePath("TextLayer/Text8")
+}, {
+"s": NodePath("Scene9"),
+"t": NodePath("TextLayer/Text9")
+}, {
+"s": NodePath("Scene10"),
+"t": NodePath("TextLayer/Text10")
+}, {
+"s": NodePath("Scene11"),
+"t": NodePath("TextLayer/Text11")
 }])
 
 [node name="Scene1" type="Node2D" parent="."]
@@ -76,13 +95,14 @@ scroll_scale = Vector2(0.895, 0.895)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene3/Mountains"]
 texture = ExtResource("6_2rwwf")
-offset = Vector2(20.405, 15.26)
+offset = Vector2(11.77, 13.6)
 script = ExtResource("3_2rwwf")
 
 [node name="Field" type="Parallax2D" parent="Scene3"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene3/Field"]
 texture = ExtResource("7_6ffoo")
+offset = Vector2(0, -1.245)
 script = ExtResource("3_2rwwf")
 
 [node name="Scene4" type="Node2D" parent="."]
@@ -143,7 +163,7 @@ scroll_scale = Vector2(0.855, 0.855)
 
 [node name="Sprite2D" type="Sprite2D" parent="Scene7/Parallax2D"]
 texture = ExtResource("14_7rfpw")
-offset = Vector2(4.38, 4.985)
+offset = Vector2(16.73, 11.215)
 script = ExtResource("3_2rwwf")
 
 [node name="Parallax2D2" type="Parallax2D" parent="Scene7"]
@@ -152,21 +172,175 @@ script = ExtResource("3_2rwwf")
 texture = ExtResource("15_lamg0")
 script = ExtResource("3_2rwwf")
 
-[node name="TextLayer" type="Parallax2D" parent="."]
+[node name="Scene8" type="Node2D" parent="."]
 visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene8"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene8/Parallax2D"]
+texture = ExtResource("16_iw7ht")
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene8"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Scene8/Parallax2D2"]
+texture = ExtResource("17_3fins")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene9" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene9"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene9/Parallax2D"]
+texture = ExtResource("18_dy8m0")
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene9"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Scene9/Parallax2D2"]
+texture = ExtResource("19_foh0k")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene10" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene10"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene10/Parallax2D"]
+texture = ExtResource("20_foh0k")
+script = ExtResource("3_2rwwf")
+
+[node name="Scene11" type="Node2D" parent="."]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Scene11"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Scene11/Parallax2D"]
+texture = ExtResource("21_vsaha")
+script = ExtResource("3_2rwwf")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Scene11"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Scene11/Parallax2D2"]
+texture = ExtResource("22_mp45k")
+script = ExtResource("3_2rwwf")
+
+[node name="TextLayer" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1.115, 1.115)
 
 [node name="Text" parent="TextLayer" instance=ExtResource("6_vkumr")]
-offset_left = -96.0
-offset_top = -59.0
-offset_right = 16.0
-offset_bottom = -27.0
+offset_left = -125.0
+offset_top = -66.0
+offset_right = -13.0
+offset_bottom = -34.0
 text = "Farmer from the outer lands"
 
 [node name="Text2" parent="TextLayer" instance=ExtResource("6_vkumr")]
-offset_left = -117.0
-offset_top = 29.0
-offset_right = 9.0
-offset_bottom = 61.0
+offset_left = -126.0
+offset_top = 24.0
+offset_right = 0.0
+offset_bottom = 56.0
 text = "brings two sprouts 
 which like strands"
+
+[node name="Text3" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -84.0
+offset_top = 16.0
+offset_right = 55.0
+offset_bottom = 48.0
+text = "And grew two flowers
+on the north"
+
+[node name="Text4" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -125.0
+offset_top = -68.0
+offset_right = -31.0
+offset_bottom = -36.0
+text = "One is tall and 
+one is short"
+
+[node name="Text5" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -16.0
+offset_top = -68.0
+offset_right = 93.0
+offset_bottom = -4.0
+text = "tall is thriving
+up to heaven,
+short is covering the meadow"
+horizontal_alignment = 2
+
+[node name="Text6" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -123.0
+offset_top = -32.0
+offset_right = 83.0
+offset_bottom = 32.0
+text = "short thought tall 
+as a flower is 
+disguise why not
+just spread like we 
+discussed"
+
+[node name="Text7" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -125.0
+offset_top = -27.0
+offset_right = 3.0
+offset_bottom = 37.0
+text = "why not there would
+be many flowers, 
+instead of 
+only one of ours"
+
+[node name="Text8" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -13.0
+offset_top = -39.0
+offset_right = 116.0
+offset_bottom = 25.0
+text = "tall is growing 
+on it's own will, 
+going for the 
+heights of hill"
+
+[node name="Text9" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -125.0
+offset_top = -66.0
+offset_right = -3.0
+offset_bottom = 30.0
+text = "\"My beauty amount
+will not
+stop count, 
+as I shall be 
+seen from 
+any route!\""
+
+[node name="Text10" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -49.0
+offset_top = -64.0
+offset_right = 82.0
+offset_bottom = 0.0
+text = "\"I won't follow your 
+intent, what you're 
+trying to pretend?\"
+short replied"
+
+[node name="Text11" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -124.0
+offset_top = -63.0
+offset_right = -15.0
+offset_bottom = 49.0
+text = "\"I have 
+made up all 
+my ways, 
+goodbye, 
+I shall 
+come to
+sunlight's gaze\""
+
+[node name="Text12" parent="TextLayer" instance=ExtResource("6_vkumr")]
+offset_left = -106.0
+offset_top = -26.0
+offset_right = 82.0
+offset_bottom = 6.0
+text = "...Then short starts to spread
+and tall to grow"
+horizontal_alignment = 1

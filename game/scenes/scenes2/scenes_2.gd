@@ -12,11 +12,4 @@ func _ready() -> void:
 		get_node(s["t"]).activate()
 		await Global.finished_text
 		get_node(s["t"]).reset()
-		#get_node(s["t"]).active = true
 		get_node(s["s"]).visible = false
-	$TextLayer/Text12.activate()
-	await Global.finished_text
-	$TextLayer/Text12.reset()
-	#Global.finished_gscene.emit()
-	#await get_tree().create_timer(1).timeout
-	Global.change_gscene.emit()

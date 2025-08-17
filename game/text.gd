@@ -4,6 +4,7 @@ signal continue_pressed
 const speed = 0.07
 var active := true
 @onready var window := get_window()
+@export var _size := 112
 
 func _ready() -> void:
 	visible_characters = 0
@@ -15,7 +16,7 @@ func _ready() -> void:
 	update_size()
 
 func update_size():
-	scale = Vector2(clamp((window.size.x / size.x) - 5, 1, 8), clamp((window.size.x / size.x) - 5, 1, 8))
+	scale = Vector2(clamp((window.size.x / _size) - 5, 1, 8), clamp((window.size.x / _size) - 5, 1, 8))
 	pivot_offset = -position
 
 func _input(event: InputEvent) -> void:

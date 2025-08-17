@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://c7o48040powat"]
+[gd_scene load_steps=34 format=3 uid="uid://c7o48040powat"]
 
 [ext_resource type="Script" uid="uid://bntvqthlncqlm" path="res://game/scenes/game/scene_game.gd" id="1_al0d1"]
 [ext_resource type="Texture2D" uid="uid://cpffwj7ovtcaw" path="res://game/scenes/game/tall/Mountains.png" id="1_od21c"]
@@ -23,8 +23,10 @@
 [ext_resource type="Script" uid="uid://ddbuuo2bwpysq" path="res://game/scenes/game/choice/choice.gd" id="19_geax6"]
 [ext_resource type="Shader" uid="uid://drse06d6pvm4x" path="res://shaders/invert.gdshader" id="20_3wrbi"]
 [ext_resource type="FontFile" uid="uid://ddv38wm3jx110" path="res://fonts/NicoPups-Regular.ttf" id="20_tfsta"]
+[ext_resource type="Texture2D" uid="uid://b2o5qokwoffjn" path="res://game/scenes/game/choice/2.png" id="21_5fccy"]
 [ext_resource type="Script" uid="uid://c00r1soaaard" path="res://game/scenes/game/choice/invert_colors_sprite.gd" id="21_7wihh"]
 [ext_resource type="Texture2D" uid="uid://0jsjx8q4kory" path="res://game/scenes/game/choice/halfofscreen.png" id="21_tfsta"]
+[ext_resource type="Texture2D" uid="uid://dyfcrjlrj4r0t" path="res://game/scenes/game/choice/1.png" id="22_ci1k2"]
 [ext_resource type="Script" uid="uid://caeperqjvncbr" path="res://game/scenes/game/choice/text.gd" id="23_ox3hh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78hgg"]
@@ -265,17 +267,26 @@ visible = false
 script = ExtResource("19_geax6")
 
 [node name="Background" type="Parallax2D" parent="Choice"]
+scroll_scale = Vector2(0.96, 0.96)
 
 [node name="Sprite2D" type="Sprite2D" parent="Choice/Background"]
+texture = ExtResource("21_5fccy")
+offset = Vector2(4.085, 1.08)
+script = ExtResource("2_od21c")
+
+[node name="Background2" type="Parallax2D" parent="Choice"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Choice/Background2"]
+texture = ExtResource("22_ci1k2")
 script = ExtResource("2_od21c")
 
 [node name="TextLayer" type="Parallax2D" parent="Choice"]
 
 [node name="Text" parent="Choice/TextLayer" instance=ExtResource("19_3wrbi")]
-offset_left = -165.0
-offset_top = 34.0
-offset_right = 18.0
-offset_bottom = 66.0
+offset_left = -98.0
+offset_top = -62.0
+offset_right = 85.0
+offset_bottom = -30.0
 text = "You're almost out of breath,
 which choice you would take?"
 
