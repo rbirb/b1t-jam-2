@@ -24,14 +24,21 @@ const TF_STAGE_KEY_AMOUNT: Dictionary[int, Array] = {
 	3: [8, 12],
 	4: [12, 20]
 }
+var change_stage := false
 
 func _ready() -> void:
 	Global.key_pressed.connect(on_key_pressed)
-	Global.choice_grow.connect(hide_choice)
+	Global.choice_hidden.connect(hide_choice)
 	await get_tree().create_timer(1).timeout
 	start_tf_game()
 
 func change_game():
+	Global.game_changed.emit()
+	Global.sprites_disappear.emit()
+	await get_tree().create_timer(1).timeout
+	if change_stage:
+		change_stage = false
+		Global.game_tf_stage += 1
 	if Global.game_is_tf_current:
 		start_sf_game()
 	else:
@@ -49,6 +56,9 @@ func start_tf_game():
 		tf_grow_count = randi_range(30, 50)
 	$TallFlower.visible = true
 	$ShortFlower.visible = false
+	if Global.game_tf_stage != 1:
+		Global.sprites_appear.emit()
+		await get_tree().create_timer(1).timeout
 	tf_summon_keys()
 
 func start_sf_game():
@@ -56,6 +66,8 @@ func start_sf_game():
 	sf_flower_count = randi_range(10, 25)
 	$TallFlower.visible = false
 	$ShortFlower.visible = true
+	Global.sprites_appear.emit()
+	await get_tree().create_timer(1).timeout
 	sf_summon_keys()
 
 func end_tf_game():
@@ -63,18 +75,20 @@ func end_tf_game():
 	await $TallFlower/AnimationShake.animation_finished
 	$TallFlower/FlowerShakeEnd.start()
 	await $TallFlower/FlowerShakeEnd.timeout
+	Global.sprites_disappear.emit()
+	await get_tree().create_timer(1).timeout
 	show_choice()
 
 func show_choice():
 	Global.game_choice = true
 	$TallFlower.visible = false
-	$Choice.visible = true
+	$Choice.appear()
 
 func hide_choice():
 	Global.game_choice = false
 	grow_choice_attempt += 1
 	$TallFlower.visible = true
-	$Choice.visible = false
+	Global.sprites_appear.emit()
 
 func on_key_pressed(k):
 	if Global.game_is_tf_current:
@@ -99,7 +113,7 @@ func tf_key_pressed(k):
 	tf_grow_count -= 1
 	if tf_grow_count < 1:
 		if Global.game_tf_stage < 4:
-			Global.game_tf_stage += 1
+			change_stage = true
 			change_game()
 		else:
 			end_tf_game()

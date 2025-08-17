@@ -7,15 +7,15 @@ var active := true
 
 func _ready() -> void:
 	visible_characters = 0
-	material = ShaderMaterial.new()
-	material.shader = preload("res://shaders/dissolve_trans.gdshader")
-	material.set_shader_parameter("progress", 0.0)
-	Global.finished_gscene.connect(dissolve)
+	#material = ShaderMaterial.new()
+	#material.shader = preload("res://shaders/dissolve_trans.gdshader")
+	#material.set_shader_parameter("progress", 0.0)
+	#Global.finished_gscene.connect(dissolve)
 	Global.window_resized.connect(update_size)
 	update_size()
 
 func update_size():
-	scale = Vector2(clamp((window.size.x / size.x) - 5, 1, 8), clamp((window.size.x / size.x) - 5, 1, 8))
+	scale = Vector2(clamp((window.size.x / Global.size.x) - 5, 1, 8), clamp((window.size.x / Global.size.x) - 5, 1, 8))
 	pivot_offset = -position
 
 func _input(event: InputEvent) -> void:
@@ -25,9 +25,9 @@ func _input(event: InputEvent) -> void:
 func reset():
 	visible_characters = 0
 
-func dissolve():
-	var shader_tween := create_tween()
-	shader_tween.tween_property(self, "material:shader_parameter/progress", 1.0, 1).from_current()
+#func dissolve():
+	#var shader_tween := create_tween()
+	#shader_tween.tween_property(self, "material:shader_parameter/progress", 1.0, 1).from_current()
 
 func activate():
 	if not active: return

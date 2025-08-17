@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c7o48040powat"]
+[gd_scene load_steps=32 format=3 uid="uid://c7o48040powat"]
 
 [ext_resource type="Script" uid="uid://bntvqthlncqlm" path="res://game/scenes/game/scene_game.gd" id="1_al0d1"]
 [ext_resource type="Texture2D" uid="uid://cpffwj7ovtcaw" path="res://game/scenes/game/tall/Mountains.png" id="1_od21c"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccqyx85n5yutu" path="res://game/scenes/game/tall/gradient.png" id="5_5oeky"]
 [ext_resource type="Texture2D" uid="uid://bfndwwkjejxoo" path="res://game/scenes/game/tall/stage1/stem/stem1.png" id="5_dnasr"]
 [ext_resource type="Texture2D" uid="uid://jg8x7easf4ed" path="res://game/scenes/game/tall/clouds.png" id="5_dxcc7"]
+[ext_resource type="Texture2D" uid="uid://d1rhdi4irv64d" path="res://game/scenes/game/tall/clouds2.png" id="5_geax6"]
 [ext_resource type="Texture2D" uid="uid://dhlhu6eid5i6s" path="res://game/scenes/game/tall/stage1/flower1.png" id="6_jq2ui"]
 [ext_resource type="Script" uid="uid://ikwq82qx7e4b" path="res://game/scenes/game/tall/stem.gd" id="7_m2dec"]
 [ext_resource type="Texture2D" uid="uid://7pbeoq0tddgs" path="res://game/scenes/game/tall/stage1/stem/stem2.png" id="8_l01mf"]
@@ -24,6 +25,7 @@
 [ext_resource type="FontFile" uid="uid://ddv38wm3jx110" path="res://fonts/NicoPups-Regular.ttf" id="20_tfsta"]
 [ext_resource type="Script" uid="uid://c00r1soaaard" path="res://game/scenes/game/choice/invert_colors_sprite.gd" id="21_7wihh"]
 [ext_resource type="Texture2D" uid="uid://0jsjx8q4kory" path="res://game/scenes/game/choice/halfofscreen.png" id="21_tfsta"]
+[ext_resource type="Script" uid="uid://caeperqjvncbr" path="res://game/scenes/game/choice/text.gd" id="23_ox3hh"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78hgg"]
 load_path = "res://.godot/imported/reverseenginnerssuckbig.png-e5198264691f6269a06021f776546fbd.ctex"
@@ -109,10 +111,19 @@ shader = ExtResource("20_3wrbi")
 script = ExtResource("1_al0d1")
 
 [node name="TallFlower" type="Node2D" parent="."]
+visible = false
+
+[node name="Gradient" type="Parallax2D" parent="TallFlower"]
+scroll_scale = Vector2(0.215, 0.215)
+
+[node name="Sprite2D" type="Sprite2D" parent="TallFlower/Gradient"]
+texture = ExtResource("5_5oeky")
+offset = Vector2(82.71, -69.405)
+script = ExtResource("2_od21c")
 
 [node name="Mountains" type="Sprite2D" parent="TallFlower"]
 texture = ExtResource("1_od21c")
-offset = Vector2(0, -51.03)
+offset = Vector2(0, -6.245)
 script = ExtResource("5_3t4sr")
 move_distance = 2.0
 
@@ -120,20 +131,20 @@ move_distance = 2.0
 texture = ExtResource("5_dxcc7")
 offset = Vector2(0, -293.165)
 script = ExtResource("5_3t4sr")
-move_distance = 10.0
+move_distance = 8.0
 
-[node name="Gradient" type="Sprite2D" parent="TallFlower"]
-texture = ExtResource("5_5oeky")
-offset = Vector2(0, -600)
+[node name="Clouds2" type="Sprite2D" parent="TallFlower"]
+texture = ExtResource("5_geax6")
+offset = Vector2(0, -661.94)
 script = ExtResource("5_3t4sr")
-move_distance = 10.0
+move_distance = 7.0
 
-[node name="Gradient2" type="Sprite2D" parent="TallFlower"]
-texture = ExtResource("5_5oeky")
+[node name="Clouds3" type="Sprite2D" parent="TallFlower"]
+texture = ExtResource("5_geax6")
 offset = Vector2(0, -1000)
 flip_h = true
 script = ExtResource("5_3t4sr")
-move_distance = 10.0
+move_distance = 6.0
 
 [node name="Stem" type="Node2D" parent="TallFlower"]
 script = ExtResource("7_m2dec")
@@ -167,6 +178,7 @@ script = ExtResource("5_3t4sr")
 texture = ExtResource("9_78hgg")
 offset = Vector2(-55, 0)
 script = ExtResource("2_od21c")
+enable_shader = false
 
 [node name="X1" type="Node2D" parent="TallFlower/LKeyArea"]
 position = Vector2(-95, -48)
@@ -184,6 +196,7 @@ position = Vector2(-15, -48)
 texture = SubResource("CompressedTexture2D_78hgg")
 offset = Vector2(55, 0)
 script = ExtResource("2_od21c")
+enable_shader = false
 
 [node name="X1" type="Node2D" parent="TallFlower/RKeyArea"]
 position = Vector2(15, -48)
@@ -213,13 +226,11 @@ visible = false
 texture = ExtResource("13_7couk")
 offset = Vector2(0, -52.665)
 script = ExtResource("2_od21c")
-enable_shader = false
 
 [node name="Mountains" type="Sprite2D" parent="ShortFlower"]
 texture = ExtResource("13_t4wlr")
 offset = Vector2(0, -31.285)
 script = ExtResource("2_od21c")
-enable_shader = false
 
 [node name="Land1" type="Parallax2D" parent="ShortFlower"]
 repeat_size = Vector2(208, 0)
@@ -230,12 +241,12 @@ script = ExtResource("14_avmg2")
 texture = ExtResource("14_ircta")
 offset = Vector2(0, -6)
 script = ExtResource("2_od21c")
-enable_shader = false
 
 [node name="KeyArea" type="Sprite2D" parent="ShortFlower"]
 texture = ExtResource("15_avmg2")
 offset = Vector2(-52, 0)
 script = ExtResource("2_od21c")
+enable_shader = false
 
 [node name="X1" type="Node2D" parent="ShortFlower/KeyArea"]
 position = Vector2(-90, -27.5)
@@ -250,20 +261,25 @@ position = Vector2(-90, 50)
 position = Vector2(-46.72, -27.5)
 
 [node name="Choice" type="Node2D" parent="."]
-visible = false
 script = ExtResource("19_geax6")
 
 [node name="Background" type="Parallax2D" parent="Choice"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Choice/Background"]
-visible = false
 script = ExtResource("2_od21c")
 
 [node name="TextLayer" type="Parallax2D" parent="Choice"]
 
 [node name="Text" parent="Choice/TextLayer" instance=ExtResource("19_3wrbi")]
+offset_left = -165.0
+offset_top = 34.0
+offset_right = 18.0
+offset_bottom = 66.0
+text = "You're almost out of breath,
+which choice you would take?"
 
 [node name="ChoiceText" type="Node2D" parent="Choice"]
+visible = false
 
 [node name="Grow" type="Label" parent="Choice/ChoiceText"]
 anchors_preset = -1
@@ -282,6 +298,7 @@ theme_override_font_sizes/font_size = 16
 text = "Grow"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("23_ox3hh")
 
 [node name="Spread" type="Label" parent="Choice/ChoiceText"]
 anchors_preset = -1
@@ -300,6 +317,7 @@ theme_override_font_sizes/font_size = 16
 text = "Spread"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("23_ox3hh")
 
 [node name="InvertColors" type="Sprite2D" parent="Choice"]
 material = SubResource("ShaderMaterial_geax6")

@@ -8,7 +8,10 @@ signal key_pressed(k)
 signal game_tf_move_down
 signal game_sf_move_right
 signal game_tf_stage_updated
-signal choice_grow
+signal choice_hidden
+signal game_changed
+signal sprites_disappear
+signal sprites_appear
 
 var game_choice := false
 var game_tf_stage := 1:

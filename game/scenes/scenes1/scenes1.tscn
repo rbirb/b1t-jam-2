@@ -20,40 +20,26 @@
 [node name="Scenes1" type="Node2D"]
 script = ExtResource("1_boxnq")
 chronology = Array[Dictionary]([{
-"bc": Color(0.09019608, 0.0627451, 0.16078432, 1),
 "s": NodePath("Scene1"),
-"t": NodePath("TextLayer/Text"),
-"wc": Color(0.9411765, 0.8666667, 0.72156864, 1)
+"t": NodePath("TextLayer/Text")
 }, {
-"bc": Color(0.09019608, 0.0627451, 0.16078432, 1),
 "s": NodePath("Scene2"),
-"t": NodePath("TextLayer/Text2"),
-"wc": Color(0.9411765, 0.8666667, 0.72156864, 1)
+"t": NodePath("TextLayer/Text2")
 }, {
-"bc": Color(0.20565137, 0.28401703, 0.47454923, 1),
 "s": NodePath("Scene3"),
-"t": NodePath("TextLayer/Text2"),
-"wc": Color(0.87707067, 0.60145855, 0.39924037, 1)
+"t": NodePath("TextLayer/Text2")
 }, {
-"bc": Color(0.21568628, 0.27450982, 0.17254902, 1),
 "s": NodePath("Scene4"),
-"t": NodePath("TextLayer/Text"),
-"wc": Color(0.85490197, 0.7254902, 0.72156864, 1)
+"t": NodePath("TextLayer/Text")
 }, {
-"bc": Color(0.9765392, 0.9595998, 0.9363083, 1),
 "s": NodePath("Scene5"),
-"t": NodePath("TextLayer/Text"),
-"wc": Color(0.12650114, 0.08560751, 0.034318466, 1)
+"t": NodePath("TextLayer/Text")
 }, {
-"bc": Color(0.9764706, 0.9607843, 0.9372549, 1),
 "s": NodePath("Scene6"),
-"t": NodePath("TextLayer/Text"),
-"wc": Color(0.1254902, 0.08627451, 0.03529412, 1)
+"t": NodePath("TextLayer/Text")
 }, {
-"bc": Color(0.9764706, 0.9607843, 0.9372549, 1),
 "s": NodePath("Scene7"),
-"t": NodePath("TextLayer/Text"),
-"wc": Color(0.1254902, 0.08627451, 0.03529412, 1)
+"t": NodePath("TextLayer/Text")
 }])
 
 [node name="Scene1" type="Node2D" parent="."]

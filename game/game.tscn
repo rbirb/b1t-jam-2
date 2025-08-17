@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://lr56v7shidjd"]
+[gd_scene load_steps=4 format=3 uid="uid://lr56v7shidjd"]
 
 [ext_resource type="Script" uid="uid://cvxc5pxw8k03f" path="res://game/game.gd" id="1_3ovkv"]
 [ext_resource type="Script" uid="uid://wk1v24twkwha" path="res://game/camera.gd" id="1_qc1vr"]
 [ext_resource type="PackedScene" uid="uid://c7o48040powat" path="res://game/scenes/game/scene_game.tscn" id="3_h7iqs"]
-[ext_resource type="PackedScene" uid="uid://c2vxwbplb5q3m" path="res://game/scenes/scenes1/scenes1.tscn" id="4_4fuuu"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_3ovkv")
@@ -23,7 +22,3 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("1_qc1vr")
 
 [node name="SceneGame" parent="." instance=ExtResource("3_h7iqs")]
-
-[node name="Scenes1" parent="." instance=ExtResource("4_4fuuu")]
-process_mode = 4
-visible = false

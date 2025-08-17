@@ -7,4 +7,3 @@
 texture = ExtResource("1_djxim")
 script = ExtResource("2_djxim")
 move_distance = 50.0
-enable_shader = false

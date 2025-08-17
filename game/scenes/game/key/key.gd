@@ -33,3 +33,4 @@ func press():
 func _ready() -> void:
 	cool_sprite_ready()
 	$Label.text = Global.KEYBOARD_KEYS[key]
+	Global.game_changed.connect(func(): queue_free())
