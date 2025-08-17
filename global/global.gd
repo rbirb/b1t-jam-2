@@ -7,8 +7,14 @@ signal svc_filled
 signal key_pressed(k)
 signal game_tf_move_down
 signal game_sf_move_right
+signal game_tf_stage_updated
+signal choice_grow
 
 var game_choice := false
+var game_tf_stage := 1:
+	set(v):
+		game_tf_stage = v
+		game_tf_stage_updated.emit()
 var game_sf_move_distance := 50.0
 var game_sf_move_duration := 0.2
 var game_is_tf_current := true

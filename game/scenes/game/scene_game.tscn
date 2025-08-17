@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7o48040powat"]
+[gd_scene load_steps=30 format=3 uid="uid://c7o48040powat"]
 
 [ext_resource type="Script" uid="uid://bntvqthlncqlm" path="res://game/scenes/game/scene_game.gd" id="1_al0d1"]
 [ext_resource type="Texture2D" uid="uid://cpffwj7ovtcaw" path="res://game/scenes/game/tall/Mountains.png" id="1_od21c"]
@@ -12,14 +12,98 @@
 [ext_resource type="Script" uid="uid://ikwq82qx7e4b" path="res://game/scenes/game/tall/stem.gd" id="7_m2dec"]
 [ext_resource type="Texture2D" uid="uid://7pbeoq0tddgs" path="res://game/scenes/game/tall/stage1/stem/stem2.png" id="8_l01mf"]
 [ext_resource type="Texture2D" uid="uid://qa7a5o1w6rof" path="res://game/scenes/game/tall/reverseenginnersarecool.png" id="9_78hgg"]
+[ext_resource type="Script" uid="uid://cgpnycpqejnu1" path="res://game/scenes/game/tall/flower.gd" id="11_taaqv"]
 [ext_resource type="Texture2D" uid="uid://ctmanxiprm4iq" path="res://game/scenes/game/short/gradient.png" id="13_7couk"]
 [ext_resource type="Texture2D" uid="uid://b5heosymnor6i" path="res://game/scenes/game/short/mountains.png" id="13_t4wlr"]
 [ext_resource type="Script" uid="uid://3gnotpjlf7va" path="res://game/scenes/game/short/parallax.gd" id="14_avmg2"]
 [ext_resource type="Texture2D" uid="uid://bxtj6jn1b0a6o" path="res://game/scenes/game/short/land1.png" id="14_ircta"]
 [ext_resource type="Texture2D" uid="uid://caaqyl83eupyi" path="res://game/scenes/game/short/keyareasf.png" id="15_avmg2"]
+[ext_resource type="PackedScene" uid="uid://n01wx5aci5gy" path="res://game/text.tscn" id="19_3wrbi"]
+[ext_resource type="Script" uid="uid://ddbuuo2bwpysq" path="res://game/scenes/game/choice/choice.gd" id="19_geax6"]
+[ext_resource type="Shader" uid="uid://drse06d6pvm4x" path="res://shaders/invert.gdshader" id="20_3wrbi"]
+[ext_resource type="FontFile" uid="uid://ddv38wm3jx110" path="res://fonts/NicoPups-Regular.ttf" id="20_tfsta"]
+[ext_resource type="Script" uid="uid://c00r1soaaard" path="res://game/scenes/game/choice/invert_colors_sprite.gd" id="21_7wihh"]
+[ext_resource type="Texture2D" uid="uid://0jsjx8q4kory" path="res://game/scenes/game/choice/halfofscreen.png" id="21_tfsta"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_78hgg"]
 load_path = "res://.godot/imported/reverseenginnerssuckbig.png-e5198264691f6269a06021f776546fbd.ctex"
+
+[sub_resource type="Animation" id="Animation_7couk"]
+resource_name = "shake"
+length = 1.6
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flower:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.12333335, 0.26666668, 0.39000002, 0.53333336, 0.6566667, 0.8, 0.92333335, 1.0666667, 1.19, 1.3333334, 1.4566667, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stem/1:offset:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.12333335, 0.26666668, 0.39000002, 0.53333336, 0.6566667, 0.8, 0.92333335, 1.0666667, 1.19, 1.3333334, 1.4566667, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stem/2:offset:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12333335, 0.26666668, 0.39000002, 0.53333336, 0.6566667, 0.8, 0.92333335, 1.0666667, 1.19, 1.3333334, 1.4566667, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Stem/3:offset:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.12333335, 0.26666668, 0.39000002, 0.53333336, 0.6566667, 0.8, 0.92333335, 1.0666667, 1.19, 1.3333334, 1.4566667, 1.5666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0, -1.0, 0.0, 1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_taaqv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flower:offset:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dy58r"]
+_data = {
+&"RESET": SubResource("Animation_taaqv"),
+&"shake": SubResource("Animation_7couk")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_geax6"]
+shader = ExtResource("20_3wrbi")
 
 [node name="SceneGame" type="Node2D"]
 script = ExtResource("1_al0d1")
@@ -30,7 +114,7 @@ script = ExtResource("1_al0d1")
 texture = ExtResource("1_od21c")
 offset = Vector2(0, -51.03)
 script = ExtResource("5_3t4sr")
-move_distance = 10.0
+move_distance = 2.0
 
 [node name="Clouds" type="Sprite2D" parent="TallFlower"]
 texture = ExtResource("5_dxcc7")
@@ -72,7 +156,7 @@ script = ExtResource("2_od21c")
 [node name="Flower" type="Sprite2D" parent="TallFlower"]
 texture = ExtResource("6_jq2ui")
 offset = Vector2(0, -4)
-script = ExtResource("2_od21c")
+script = ExtResource("11_taaqv")
 
 [node name="Ground" type="Sprite2D" parent="TallFlower"]
 texture = ExtResource("1_xtnqc")
@@ -112,6 +196,15 @@ position = Vector2(15, 30)
 
 [node name="X2" type="Node2D" parent="TallFlower/RKeyArea"]
 position = Vector2(95, -48)
+
+[node name="FlowerShakeEnd" type="Timer" parent="TallFlower"]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationShake" type="AnimationPlayer" parent="TallFlower"]
+libraries = {
+&"": SubResource("AnimationLibrary_dy58r")
+}
 
 [node name="ShortFlower" type="Node2D" parent="."]
 visible = false
@@ -158,3 +251,59 @@ position = Vector2(-46.72, -27.5)
 
 [node name="Choice" type="Node2D" parent="."]
 visible = false
+script = ExtResource("19_geax6")
+
+[node name="Background" type="Parallax2D" parent="Choice"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Choice/Background"]
+visible = false
+script = ExtResource("2_od21c")
+
+[node name="TextLayer" type="Parallax2D" parent="Choice"]
+
+[node name="Text" parent="Choice/TextLayer" instance=ExtResource("19_3wrbi")]
+
+[node name="ChoiceText" type="Node2D" parent="Choice"]
+
+[node name="Grow" type="Label" parent="Choice/ChoiceText"]
+anchors_preset = -1
+offset_left = -73.0
+offset_top = -12.0
+offset_right = -33.0
+offset_bottom = 11.0
+pivot_offset = Vector2(73, 12)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("20_tfsta")
+theme_override_font_sizes/font_size = 16
+text = "Grow"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Spread" type="Label" parent="Choice/ChoiceText"]
+anchors_preset = -1
+offset_left = 32.0
+offset_top = -12.0
+offset_right = 75.0
+offset_bottom = 11.0
+pivot_offset = Vector2(-32, 12)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("20_tfsta")
+theme_override_font_sizes/font_size = 16
+text = "Spread"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="InvertColors" type="Sprite2D" parent="Choice"]
+material = SubResource("ShaderMaterial_geax6")
+texture = ExtResource("21_tfsta")
+offset = Vector2(55, 0)
+script = ExtResource("21_7wihh")
+enable_shader = false

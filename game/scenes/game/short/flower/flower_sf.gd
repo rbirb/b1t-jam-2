@@ -8,4 +8,3 @@ const TEXTURES: Array[Texture2D] = [
 func _ready() -> void:
 	move_sprite_ready()
 	self.texture = TEXTURES[randi_range(0, TEXTURES.size() - 1)]
-	print("sf_ry:"+str(self.offset.y))
