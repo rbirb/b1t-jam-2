@@ -8,6 +8,7 @@ signal key_pressed(k)
 signal game_tf_move_down
 signal game_sf_move_right
 
+var game_choice := false
 var game_sf_move_distance := 50.0
 var game_sf_move_duration := 0.2
 var game_is_tf_current := true

@@ -21,6 +21,7 @@ It continues to switch back and forth and progress further
 until the growth of tall flower becomes slower and harder as the amount of keys increases
 
 Then we given a choice
+"You're almost out of breath, which choice you would take?"
 "Grow"      or       "Spread"
 If we choose first, the tall flower will be struggling and amount of keys will only increase
 choice'll appear again and again, until the flower won't be able to continue

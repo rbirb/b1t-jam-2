@@ -32,6 +32,9 @@ enabled=PackedStringArray()
 folder_colors={
 "res://fonts/": "green",
 "res://game/": "orange",
+"res://game/scenes/game/short/": "teal",
+"res://game/scenes/game/tall/": "red",
+"res://game/scenes/scenes1/": "blue",
 "res://global/": "yellow",
 "res://shaders/": "purple",
 "res://sounds/": "pink"

@@ -22,16 +22,16 @@ func move_sprite_ready():
 		Global.game_sf_move_right.connect(move_right)
 
 func move_down():
-	if not Global.game_is_tf_current: return
+	if not Global.game_is_tf_current or Global.game_choice: return
 	if tw_move != null:
 		tw_move.kill()
 	sprite_pos = target_pos
 	target_pos.y += move_distance
 	tw_move = create_tween()
-	tw_move.tween_property(self, "sprite_pos", target_pos, move_duration).from_current().set_trans(Tween.TRANS_SINE)#.set_ease(Tween.EASE_IN)
+	tw_move.tween_property(self, "sprite_pos:y", target_pos.y, move_duration).from_current().set_trans(Tween.TRANS_SINE)#.set_ease(Tween.EASE_IN)
 
 func move_right():
-	if Global.game_is_tf_current: return
+	if Global.game_is_tf_current or Global.game_choice: return
 	if tw_move != null:
 		tw_move.kill()
 	sprite_pos = self.offset
@@ -42,6 +42,6 @@ func move_right():
 
 func set_offset(pos: Vector2):
 	self.offset = pos
-	if (self.offset.y > get_viewport().size.y / self.scale.y)\
+	if (self.offset.y > get_viewport().size.y / self.scale.y + 1000)\
 		or (self.offset.x > get_viewport().size.x / self.scale.x):
 		queue_free()

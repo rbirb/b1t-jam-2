@@ -18,6 +18,7 @@ var tf_grow_count := 0
 var sf_flower_count := 0
 var tf_key_count := 0
 var tf_stage := 1
+var grow_choice_attempt := 0
 const TF_STAGE_KEY_AMOUNT: Dictionary[int, Array] = {
 	1: [2, 3],
 	2: [5, 7],
@@ -28,11 +29,45 @@ const TF_STAGE_KEY_AMOUNT: Dictionary[int, Array] = {
 func _ready() -> void:
 	Global.key_pressed.connect(on_key_pressed)
 	await get_tree().create_timer(1).timeout
-	Global.game_is_tf_current = false
-	sf_summon_keys()
+	start_tf_game()
 
 func change_game():
-	pass
+	if Global.game_is_tf_current:
+		start_sf_game()
+	else:
+		start_tf_game()
+
+func start_tf_game():
+	Global.game_is_tf_current = true
+	if tf_stage == 1:
+		tf_grow_count = randi_range(10, 15)
+	elif tf_stage == 2:
+		tf_grow_count = randi_range(20, 25)
+	elif tf_stage == 3:
+		tf_grow_count = randi_range(25, 30)
+	elif tf_stage == 4:
+		tf_grow_count = randi_range(30+grow_choice_attempt*3, 50+grow_choice_attempt*3)
+	
+	$TallFlower.visible = true
+	$ShortFlower.visible = false
+	tf_summon_keys()
+
+func start_sf_game():
+	Global.game_is_tf_current = false
+	sf_flower_count = randi_range(10, 25)
+	$TallFlower.visible = false
+	$ShortFlower.visible = true
+	sf_summon_keys()
+
+func show_choice():
+	Global.game_choice = true
+	$TallFlower.visible = false
+	$Choice.visible = true
+
+func hide_choice():
+	Global.game_choice = false
+	$TallFlower.visible = true
+	$Choice.visible = false
 
 func on_key_pressed(k):
 	if Global.game_is_tf_current:
@@ -41,7 +76,9 @@ func on_key_pressed(k):
 		sf_key_pressed(k)
 
 func sf_key_pressed(k):
-	sf_flower_count += 1
+	sf_flower_count -= 1
+	if sf_flower_count < 1:
+		change_game()
 	var flower_i := sf_flower.instantiate()
 	flower_i.tf = false
 	$ShortFlower.add_child(flower_i)
@@ -51,17 +88,8 @@ func sf_key_pressed(k):
 
 func tf_key_pressed(k):
 	tf_key_count -= 1
-	tf_grow_count += 1
-	if tf_grow_count > 250:
-		tf_grow_count = 201
-	elif tf_grow_count > 200:
-		tf_stage = 4
-	elif tf_grow_count > 120:
-		tf_stage = 3
-	elif tf_grow_count > 50:
-		tf_stage = 2
-	elif tf_grow_count > 20:
-		tf_stage = 1
+	tf_grow_count -= 1
+	
 	Global.game_tf_move_down.emit()
 	if tf_key_count <= 0:
 		tf_summon_keys()
@@ -79,7 +107,7 @@ func tf_summon_keys():
 	if tf_stage < 4:
 		tf_key_count = randi_range(TF_STAGE_KEY_AMOUNT[tf_stage][0], TF_STAGE_KEY_AMOUNT[tf_stage][0])
 	else:
-		tf_key_count = randi_range(TF_STAGE_KEY_AMOUNT[tf_stage][0]+tf_grow_count-200, TF_STAGE_KEY_AMOUNT[tf_stage][0]+tf_grow_count-200)
+		tf_key_count = randi_range(TF_STAGE_KEY_AMOUNT[tf_stage][0]+grow_choice_attempt*3, TF_STAGE_KEY_AMOUNT[tf_stage][0]+grow_choice_attempt*3)
 	var keys: Array[int] = []
 	for k in tf_key_count:
 		var key_i := key.instantiate()

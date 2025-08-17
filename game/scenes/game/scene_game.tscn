@@ -25,8 +25,6 @@ load_path = "res://.godot/imported/reverseenginnerssuckbig.png-e5198264691f6269a
 script = ExtResource("1_al0d1")
 
 [node name="TallFlower" type="Node2D" parent="."]
-process_mode = 4
-visible = false
 
 [node name="Mountains" type="Sprite2D" parent="TallFlower"]
 texture = ExtResource("1_od21c")
@@ -116,10 +114,11 @@ position = Vector2(15, 30)
 position = Vector2(95, -48)
 
 [node name="ShortFlower" type="Node2D" parent="."]
+visible = false
 
 [node name="Gradient" type="Sprite2D" parent="ShortFlower"]
 texture = ExtResource("13_7couk")
-offset = Vector2(0, -82)
+offset = Vector2(0, -52.665)
 script = ExtResource("2_od21c")
 enable_shader = false
 
@@ -152,7 +151,10 @@ position = Vector2(-90, -27.5)
 position = Vector2(-90, -5)
 
 [node name="Y2" type="Node2D" parent="ShortFlower/KeyArea"]
-position = Vector2(-90, 41)
+position = Vector2(-90, 50)
 
 [node name="X2" type="Node2D" parent="ShortFlower/KeyArea"]
 position = Vector2(-46.72, -27.5)
+
+[node name="Choice" type="Node2D" parent="."]
+visible = false

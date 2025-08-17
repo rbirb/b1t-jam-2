@@ -15,7 +15,7 @@ func set_offset(pos: Vector2):
 	$Label.pivot_offset = -$Label.position
 
 func _input(event: InputEvent) -> void:
-	if Input.is_key_pressed(key) and not pressed and ((tf and Global.game_is_tf_current) or (not tf and not Global.game_is_tf_current)):
+	if Input.is_key_pressed(key) and not pressed and ((tf and Global.game_is_tf_current) or (not tf and not Global.game_is_tf_current)) and not Global.game_choice:
 		if order == 0:
 			press()
 		elif order > 0:
