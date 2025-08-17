@@ -20,7 +20,8 @@ func update_size():
 	pivot_offset = -position
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("text_continue") and visible_characters != 0:
+	if Input.is_action_just_pressed("text_continue") and visible_characters != 0 and $Timer.is_stopped():
+		$Timer.start()
 		continue_pressed.emit()
 
 func reset():

@@ -29,7 +29,6 @@ var change_stage := false
 func _ready() -> void:
 	Global.key_pressed.connect(on_key_pressed)
 	Global.choice_hidden.connect(hide_choice)
-	await get_tree().create_timer(1).timeout
 	start_tf_game()
 
 func change_game():
@@ -58,7 +57,7 @@ func start_tf_game():
 	$ShortFlower.visible = false
 	if Global.game_tf_stage != 1:
 		Global.sprites_appear.emit()
-		await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(1).timeout
 	tf_summon_keys()
 
 func start_sf_game():
@@ -136,7 +135,7 @@ func tf_summon_keys():
 	if Global.game_tf_stage < 4:
 		tf_key_count = randi_range(TF_STAGE_KEY_AMOUNT[Global.game_tf_stage][0], TF_STAGE_KEY_AMOUNT[Global.game_tf_stage][0])
 	else:
-		tf_key_count = randi_range(TF_STAGE_KEY_AMOUNT[Global.game_tf_stage][0]+grow_choice_attempt*3, TF_STAGE_KEY_AMOUNT[Global.game_tf_stage][0]+grow_choice_attempt*3)
+		tf_key_count = randi_range(TF_STAGE_KEY_AMOUNT[Global.game_tf_stage][0]+grow_choice_attempt*2, TF_STAGE_KEY_AMOUNT[Global.game_tf_stage][0]+grow_choice_attempt*2)
 	var keys: Array[int] = []
 	for k in tf_key_count:
 		var key_i := key.instantiate()

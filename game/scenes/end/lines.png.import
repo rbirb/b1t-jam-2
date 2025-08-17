@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kdprfg8u151a"
-path="res://.godot/imported/cover1-export.png-b2905dc85591d99ecfdb652a66ac0e97.ctex"
+uid="uid://dd4ri0acrge8v"
+path="res://.godot/imported/lines.png-92c337c6b5b9a4e6f39b4b83b06b9677.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://cover1-export.png"
-dest_files=["res://.godot/imported/cover1-export.png-b2905dc85591d99ecfdb652a66ac0e97.ctex"]
+source_file="res://game/scenes/end/lines.png"
+dest_files=["res://.godot/imported/lines.png-92c337c6b5b9a4e6f39b4b83b06b9677.ctex"]
 
 [params]
 

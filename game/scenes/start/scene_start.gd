@@ -2,6 +2,7 @@ extends Node2D
 
 var space_slide := false
 var fullscreen_slide := false
+var ended := false
 
 func _ready() -> void:
 	$Lines.visible = true
@@ -12,6 +13,9 @@ func _ready() -> void:
 	$Fullscreen.visible = false
 
 func end_scene():
+	if ended:
+		return
+	ended = true
 	Global.finished_gscene.emit()
 	await get_tree().create_timer(2).timeout
 	Global.change_gscene.emit()

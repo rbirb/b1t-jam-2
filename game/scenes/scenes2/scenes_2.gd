@@ -13,3 +13,6 @@ func _ready() -> void:
 		await Global.finished_text
 		get_node(s["t"]).reset()
 		get_node(s["s"]).visible = false
+	Global.finished_gscene.emit()
+	await get_tree().create_timer(1).timeout
+	Global.change_gscene.emit()

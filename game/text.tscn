@@ -14,3 +14,7 @@ text = "ninuiuhhiihiuhiuhihiuhihihihiuhiuhiuh"
 fit_content = true
 scroll_active = false
 script = ExtResource("2_h3iee")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true

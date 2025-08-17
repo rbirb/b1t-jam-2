@@ -11,6 +11,16 @@
 
 [node name="Scenes2" type="Node2D"]
 script = ExtResource("1_ngoin")
+chronology = Array[Dictionary]([{
+"s": NodePath("Scene1"),
+"t": NodePath("TextLayer/Text")
+}, {
+"s": NodePath("Scene2"),
+"t": NodePath("TextLayer/Text2")
+}, {
+"s": NodePath("Scene3"),
+"t": NodePath("TextLayer/Text3")
+}])
 
 [node name="Scene1" type="Node2D" parent="."]
 visible = false
